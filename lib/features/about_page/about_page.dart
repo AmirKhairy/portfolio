@@ -8,12 +8,11 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      // Enable scrolling for web & mobile
       padding: const EdgeInsets.symmetric(
-          vertical: 40, horizontal: 20), // moderate padding
+          vertical: 40, horizontal: 20), 
       child: Center(
         child: ConstrainedBox(
-          constraints: BoxConstraints(maxWidth: 900), // limit max width on web
+          constraints: BoxConstraints(maxWidth: 900), 
           child: AnimationLimiter(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -25,6 +24,7 @@ class AboutPage extends StatelessWidget {
                   child: FadeInAnimation(child: widget),
                 ),
                 children: [
+                  // About Section
                   Text(
                     'About',
                     style: TextStyle(
@@ -43,6 +43,7 @@ class AboutPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 50),
+                  // Info Section
                   LayoutBuilder(
                     builder: (context, constraints) {
                       bool isMobile = constraints.maxWidth < 600;
@@ -90,6 +91,7 @@ class AboutPage extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 50),
+                  // Skills Section
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: Row(

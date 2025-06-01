@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  /// Desktop Layout (Row)
   Widget buildDesktopLayout(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -33,38 +32,39 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  /// Tablet Layout (Row with less padding and sizes)
   Widget buildTabletLayout(BuildContext context) {
     return Row(
       children: [
-        buildTextSection(context,
-            vertical: 200,
-            horizontal: 20,
-            nameSize: 45,
-            titleSize: 25,
-            emailSize: 14),
+        buildTextSection(
+          context,
+          vertical: 200,
+          horizontal: 20,
+          nameSize: 45,
+          titleSize: 25,
+          emailSize: 14,
+        ),
+        Spacer(),
         buildImageSection(context, heightFactor: 0.8),
       ],
     );
   }
 
-  /// Mobile Layout (Column instead of Row)
   Widget buildMobileLayout(BuildContext context) {
     return Column(
       children: [
-        buildTextSection(context,
-            vertical: 100,
-            horizontal: 20,
-            nameSize: 30,
-            titleSize: 18,
-            emailSize: 13),
-        const SizedBox(height: 20),
-        buildImageSection(context, heightFactor: 0.5),
+        buildTextSection(
+          context,
+          vertical: 100,
+          horizontal: 20,
+          nameSize: 30,
+          titleSize: 18,
+          emailSize: 13,
+        ),
+        buildImageSection(context, heightFactor: 1.0),
       ],
     );
   }
 
-  /// Shared text section
   Widget buildTextSection(
     BuildContext context, {
     required double vertical,
@@ -136,7 +136,6 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  /// Shared image section
   Widget buildImageSection(BuildContext context,
       {required double heightFactor}) {
     return AnimationConfiguration.synchronized(

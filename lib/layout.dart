@@ -18,13 +18,16 @@ class Layout extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
+                // App Bar
                 buildAppBar(context, cubit),
+                // Main Screens
                 ConstrainedBox(
                   constraints: BoxConstraints(
                     minHeight: MediaQuery.of(context).size.height,
                   ),
                   child: cubit.mainScreens[cubit.currentIndex],
                 ),
+                // Footer
                 buildFooter(context, cubit),
               ],
             ),
