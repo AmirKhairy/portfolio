@@ -53,6 +53,35 @@ class PortfolioPage extends StatelessWidget {
       linkedInUrl:
           'https://www.linkedin.com/posts/amir-khairy-35ba06291_flutter-dart-statemanagement-activity-7291818869608837120-719x?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEbOcncBrWXkbystPnInBqk7wVf7eIkWgqQ',
     ),
+    Project(
+      name: 'Qatra',
+      imagePath: 'assets/images/qatra.png',
+      githubUrl: 'https://github.com/AmirKhairy',
+      externalUrls: [
+        'https://apps.apple.com/us/app/%D9%82%D8%B7%D8%B1%D8%A9-qatra/id1603683145',
+        'https://play.google.com/store/apps/details?id=com.cdark.devsuperapp.qatrahapp',
+      ],
+    ),
+    Project(
+      name: 'Qatra Captain',
+      imagePath: 'assets/images/qatra_captain.png',
+      githubUrl: 'https://github.com/AmirKhairy',
+      externalUrls: [
+        'https://apps.apple.com/us/app/%D9%83%D8%A7%D8%A8%D8%AA%D9%86-%D9%82%D8%B7%D8%B1%D8%A9-%D9%85%D9%86%D8%A7%D8%AF%D9%8A%D8%A8/id1603695820',
+        'https://play.google.com/store/apps/details?id=com.cdark.devsuperapp.qatrah.driver',
+      ],
+    ),
+    Project(
+      name: 'Farm IQ',
+      imagePath: 'assets/images/farm_iq.png',
+      githubUrl: 'https://github.com/GraduationProject-FCITU/frontend-mobile',
+      externalUrls: ['https://lnkd.in/p/ewb6CQxg'],
+    ),
+    Project(
+      name: 'Basmty',
+      imagePath: 'assets/images/basmty.png',
+      githubUrl: 'https://github.com/AmirKhairy/Basmty',
+    ),
   ];
 
   @override
@@ -127,12 +156,14 @@ class Project {
   final String imagePath;
   final String githubUrl;
   final String? linkedInUrl;
+  final List<String> externalUrls;
 
   const Project({
     required this.name,
     required this.imagePath,
     required this.githubUrl,
     this.linkedInUrl,
+    this.externalUrls = const [],
   });
 }
 
@@ -194,6 +225,15 @@ class _ProjectCardState extends State<ProjectCard> {
                           onPressed: () =>
                               launchUrl(Uri.parse(widget.project.linkedInUrl!)),
                         ),
+                      ...widget.project.externalUrls.map(
+                        (url) => IconButton(
+                          icon: FaIcon(_iconForUrl(url)),
+                          tooltip: 'Open link',
+                          color: Colors.white,
+                          iconSize: 28,
+                          onPressed: () => launchUrl(Uri.parse(url)),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -223,5 +263,15 @@ class _ProjectCardState extends State<ProjectCard> {
         ),
       ),
     );
+  }
+
+  FaIconData _iconForUrl(String url) {
+    if (url.contains('play.google.com')) {
+      return FontAwesomeIcons.googlePlay;
+    }
+    if (url.contains('apps.apple.com')) {
+      return FontAwesomeIcons.appStoreIos;
+    }
+    return FontAwesomeIcons.link;
   }
 }

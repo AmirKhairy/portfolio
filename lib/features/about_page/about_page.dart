@@ -35,7 +35,7 @@ class AboutPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Flutter developer passionate about building high-performance mobile apps. Experience in prompt engineering at Outlier and developed two full-featured mobile applications from scratch. Seeking an opportunity to contribute and grow in a fast-paced development team.',
+                    'Junior Flutter Developer and Software Engineer with 1+ year of professional experience building production-ready cross-platform Android and iOS applications. Strong in Flutter, Dart, GetX, BLoC/Cubit, Clean Architecture, Firebase, Supabase, REST APIs, and real-time features.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 16,
@@ -64,8 +64,8 @@ class AboutPage extends StatelessWidget {
                                     )),
                                 SizedBox(height: 10),
                                 InfoRow(title: 'Birthday: 20 Dec 2003'),
-                                InfoRow(title: 'Phone: +20 01206082636'),
-                                InfoRow(title: 'City: Tanta, Egypt'),
+                                InfoRow(title: 'Phone: +20 103 207 8026'),
+                                InfoRow(title: 'City: Cairo, Egypt'),
                               ],
                             ),
                           ),
@@ -78,7 +78,7 @@ class AboutPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 SizedBox(height: 80),
-                                InfoRow(title: 'Age: 21'),
+                                InfoRow(title: 'Age: 22'),
                                 InfoRow(title: 'Degree: Bachelor\'s'),
                                 InfoRow(
                                     title: 'Email: amirkhairy903@gmail.com'),

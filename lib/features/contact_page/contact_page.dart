@@ -66,7 +66,7 @@ class ContactPage extends StatelessWidget {
                           _buildContactItem(
                             icon: FontAwesomeIcons.mapMarkerAlt,
                             label: 'Address',
-                            value: 'Tanta, Egypt',
+                            value: 'Cairo, Egypt',
                           ),
                           const SizedBox(height: 48),
                           _buildContactItem(
@@ -83,8 +83,8 @@ class ContactPage extends StatelessWidget {
                           _buildContactItem(
                             icon: FontAwesomeIcons.whatsapp,
                             label: 'WhatsApp',
-                            value: '+201206082636',
-                            url: 'https://wa.me/201206082636',
+                            value: '+201032078026',
+                            url: 'https://wa.me/201032078026',
                           ),
                           const SizedBox(height: 48),
                           _buildSocialItem(
@@ -93,12 +93,10 @@ class ContactPage extends StatelessWidget {
                             icons: [
                               FontAwesomeIcons.linkedin,
                               FontAwesomeIcons.github,
-                              FontAwesomeIcons.facebook,
                             ],
                             urls: [
-                              'https://www.linkedin.com/in/amir-khairy/',
+                              'https://www.linkedin.com/in/amir-khairy-35ba06291',
                               'https://github.com/AmirKhairy',
-                              'https://web.facebook.com/amir.khairy.9256',
                             ],
                           ),
                         ],
@@ -158,7 +156,7 @@ class ContactPage extends StatelessWidget {
                           _buildContactItem(
                             icon: FontAwesomeIcons.mapMarkerAlt,
                             label: 'Address',
-                            value: 'Tanta, Egypt',
+                            value: 'Cairo, Egypt',
                           ),
                           const SizedBox(height: 48),
                           _buildContactItem(
@@ -177,8 +175,8 @@ class ContactPage extends StatelessWidget {
                           _buildContactItem(
                             icon: FontAwesomeIcons.whatsapp,
                             label: 'WhatsApp',
-                            value: '+201206082636',
-                            url: 'https://wa.me/201206082636',
+                            value: '+201032078026',
+                            url: 'https://wa.me/201032078026',
                           ),
                           const SizedBox(height: 48),
                           _buildSocialItem(
@@ -187,12 +185,10 @@ class ContactPage extends StatelessWidget {
                             icons: [
                               FontAwesomeIcons.linkedin,
                               FontAwesomeIcons.github,
-                              FontAwesomeIcons.facebook,
                             ],
                             urls: [
-                              'https://www.linkedin.com/in/amir-khairy/',
+                              'https://www.linkedin.com/in/amir-khairy-35ba06291',
                               'https://github.com/AmirKhairy',
-                              'https://web.facebook.com/amir.khairy.9256',
                             ],
                           ),
                         ],
@@ -246,7 +242,7 @@ class ContactPage extends StatelessWidget {
                   _buildContactItem(
                     icon: FontAwesomeIcons.mapMarkerAlt,
                     label: 'Address',
-                    value: 'Tanta, Egypt',
+                    value: 'Cairo, Egypt',
                   ),
                   const SizedBox(height: 10),
                   _buildContactItem(
@@ -258,8 +254,8 @@ class ContactPage extends StatelessWidget {
                   _buildContactItem(
                     icon: FontAwesomeIcons.whatsapp,
                     label: 'WhatsApp',
-                    value: '+201206082636',
-                    url: 'https://wa.me/201206082636',
+                    value: '+201032078026',
+                    url: 'https://wa.me/201032078026',
                   ),
                   const SizedBox(height: 10),
                   _buildSocialItem(
@@ -268,12 +264,10 @@ class ContactPage extends StatelessWidget {
                     icons: [
                       FontAwesomeIcons.linkedin,
                       FontAwesomeIcons.github,
-                      FontAwesomeIcons.facebook,
                     ],
                     urls: [
-                      'https://www.linkedin.com/in/amir-khairy/',
+                      'https://www.linkedin.com/in/amir-khairy-35ba06291',
                       'https://github.com/AmirKhairy',
-                      'https://web.facebook.com/amir.khairy.9256',
                     ],
                   ),
                 ],
@@ -286,7 +280,7 @@ class ContactPage extends StatelessWidget {
   }
 
   Widget _buildContactItem({
-    required IconData icon,
+    required FaIconData icon,
     required String label,
     required String value,
     String? url,
@@ -324,9 +318,9 @@ class ContactPage extends StatelessWidget {
   }
 
   Widget _buildSocialItem({
-    required IconData icon,
+    required FaIconData icon,
     required String label,
-    required List<IconData> icons,
+    required List<FaIconData> icons,
     required List<String> urls,
   }) {
     return Row(
@@ -335,7 +329,7 @@ class ContactPage extends StatelessWidget {
         CircleAvatar(
           radius: 28,
           backgroundColor: Colors.blueAccent,
-          child: Icon(icon, color: Colors.white, size: 24),
+          child: FaIcon(icon, color: Colors.white, size: 24),
         ),
         const SizedBox(width: 12),
         Column(

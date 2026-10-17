@@ -20,14 +20,19 @@ class HomePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        buildTextSection(context,
-            vertical: 300,
-            horizontal: 40,
-            nameSize: 60,
-            titleSize: 30,
-            emailSize: 15),
-        const Spacer(),
-        buildImageSection(context, heightFactor: 1.0),
+        Expanded(
+          flex: 6,
+          child: buildTextSection(context,
+              vertical: 220,
+              horizontal: 40,
+              nameSize: 60,
+              titleSize: 30,
+              emailSize: 15),
+        ),
+        Expanded(
+          flex: 4,
+          child: buildImageSection(context, heightFactor: 0.72),
+        ),
       ],
     );
   }
@@ -35,16 +40,21 @@ class HomePage extends StatelessWidget {
   Widget buildTabletLayout(BuildContext context) {
     return Row(
       children: [
-        buildTextSection(
-          context,
-          vertical: 200,
-          horizontal: 20,
-          nameSize: 45,
-          titleSize: 25,
-          emailSize: 14,
+        Expanded(
+          flex: 6,
+          child: buildTextSection(
+            context,
+            vertical: 150,
+            horizontal: 20,
+            nameSize: 45,
+            titleSize: 25,
+            emailSize: 14,
+          ),
         ),
-        Spacer(),
-        buildImageSection(context, heightFactor: 0.8),
+        Expanded(
+          flex: 4,
+          child: buildImageSection(context, heightFactor: 0.62),
+        ),
       ],
     );
   }
@@ -88,7 +98,7 @@ class HomePage extends StatelessWidget {
             ),
             children: [
               Text(
-                'Amir Khairy',
+                'Amir Khairy Khalil',
                 style: TextStyle(
                   fontSize: nameSize,
                   fontWeight: FontWeight.bold,
@@ -96,7 +106,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'I\'m Flutter Developer',
+                'I\'m a Junior Flutter Developer',
                 style: TextStyle(
                   fontSize: titleSize,
                   color: Colors.white,
@@ -144,11 +154,32 @@ class HomePage extends StatelessWidget {
         verticalOffset: 50.0,
         child: FadeInAnimation(
           child: Padding(
-            padding: const EdgeInsets.only(top: 50),
-            child: Image.asset(
-              'assets/images/home_image.png',
-              fit: BoxFit.contain,
-              height: MediaQuery.of(context).size.height * heightFactor,
+            padding: const EdgeInsets.only(top: 40, right: 20),
+            child: Align(
+              alignment: Alignment.center,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: 450,
+                  maxHeight: MediaQuery.of(context).size.height * heightFactor,
+                ),
+                child: AspectRatio(
+                  aspectRatio: 0.82,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(color: const Color.fromARGB(255, 61, 144, 215), width: 3),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.black54, blurRadius: 24, offset: Offset(0, 12)),
+                      ],
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.asset(
+                      'assets/images/profile_image.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ),

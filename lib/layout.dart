@@ -80,11 +80,6 @@ class Layout extends StatelessWidget {
                 icon: FontAwesomeIcons.github,
                 onTap: () => cubit.openUrl('https://github.com/AmirKhairy'),
               ),
-              UrlButton(
-                icon: FontAwesomeIcons.facebook,
-                onTap: () =>
-                    cubit.openUrl('https://web.facebook.com/amir.khairy.9256'),
-              ),
             ],
           ),
         ],
@@ -164,7 +159,7 @@ class UrlButton extends StatelessWidget {
     required this.icon,
   });
   final VoidCallback? onTap;
-  final IconData icon;
+  final FaIconData icon;
 
   @override
   Widget build(BuildContext context) {
