@@ -56,7 +56,6 @@ class PortfolioPage extends StatelessWidget {
     Project(
       name: 'Qatra',
       imagePath: 'assets/images/qatra.png',
-      githubUrl: 'https://github.com/AmirKhairy',
       externalUrls: [
         'https://apps.apple.com/us/app/%D9%82%D8%B7%D8%B1%D8%A9-qatra/id1603683145',
         'https://play.google.com/store/apps/details?id=com.cdark.devsuperapp.qatrahapp',
@@ -65,7 +64,6 @@ class PortfolioPage extends StatelessWidget {
     Project(
       name: 'Qatra Captain',
       imagePath: 'assets/images/qatra_captain.png',
-      githubUrl: 'https://github.com/AmirKhairy',
       externalUrls: [
         'https://apps.apple.com/us/app/%D9%83%D8%A7%D8%A8%D8%AA%D9%86-%D9%82%D8%B7%D8%B1%D8%A9-%D9%85%D9%86%D8%A7%D8%AF%D9%8A%D8%A8/id1603695820',
         'https://play.google.com/store/apps/details?id=com.cdark.devsuperapp.qatrah.driver',
@@ -154,14 +152,14 @@ class PortfolioPage extends StatelessWidget {
 class Project {
   final String name;
   final String imagePath;
-  final String githubUrl;
+  final String? githubUrl;
   final String? linkedInUrl;
   final List<String> externalUrls;
 
   const Project({
     required this.name,
     required this.imagePath,
-    required this.githubUrl,
+    this.githubUrl,
     this.linkedInUrl,
     this.externalUrls = const [],
   });
@@ -198,22 +196,23 @@ class _ProjectCardState extends State<ProjectCard> {
               duration: const Duration(milliseconds: 300),
               opacity: _isHovering ? 1.0 : 0.0,
               child: Container(
-                color: Colors.black.withOpacity(0.6),
+                color: Colors.black.withValues(alpha: 0.6),
                 child: Center(
                   child: Wrap(
                     spacing: 16,
                     alignment: WrapAlignment.center,
                     children: [
-                      IconButton(
-                        icon: const FaIcon(
-                          FontAwesomeIcons.github,
-                          color: Colors.white,
+                      if (widget.project.githubUrl != null)
+                        IconButton(
+                          icon: const FaIcon(
+                            FontAwesomeIcons.github,
+                            color: Colors.white,
+                          ),
+                          tooltip: 'GitHub',
+                          iconSize: 32,
+                          onPressed: () =>
+                              launchUrl(Uri.parse(widget.project.githubUrl!)),
                         ),
-                        tooltip: 'GitHub',
-                        iconSize: 32,
-                        onPressed: () =>
-                            launchUrl(Uri.parse(widget.project.githubUrl)),
-                      ),
                       if (widget.project.linkedInUrl != null)
                         IconButton(
                           icon: const FaIcon(

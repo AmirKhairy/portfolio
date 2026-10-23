@@ -1,11 +1,11 @@
 {
-    "name": "amir_website",
-    "short_name": "amir_website",
+    "name": "Amir Khairy | Flutter Developer",
+    "short_name": "Amir Khairy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Amir Khairy's Flutter developer portfolio.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

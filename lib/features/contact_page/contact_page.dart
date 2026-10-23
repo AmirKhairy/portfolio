@@ -64,7 +64,7 @@ class ContactPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildContactItem(
-                            icon: FontAwesomeIcons.mapMarkerAlt,
+                            icon: FontAwesomeIcons.locationDot,
                             label: 'Address',
                             value: 'Cairo, Egypt',
                           ),
@@ -154,7 +154,7 @@ class ContactPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _buildContactItem(
-                            icon: FontAwesomeIcons.mapMarkerAlt,
+                            icon: FontAwesomeIcons.locationDot,
                             label: 'Address',
                             value: 'Cairo, Egypt',
                           ),
@@ -240,7 +240,7 @@ class ContactPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 80),
                   _buildContactItem(
-                    icon: FontAwesomeIcons.mapMarkerAlt,
+                    icon: FontAwesomeIcons.locationDot,
                     label: 'Address',
                     value: 'Cairo, Egypt',
                   ),
