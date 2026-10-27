@@ -80,6 +80,13 @@ class PortfolioPage extends StatelessWidget {
       imagePath: 'assets/images/basmty.png',
       githubUrl: 'https://github.com/AmirKhairy/Basmty',
     ),
+    Project(
+      name: 'Muzakkir (مُذكّر)',
+      imagePath: 'assets/images/muzakkir.png',
+      externalUrls: [
+        'https://play.google.com/store/apps/details?id=com.amirkhairy.muzakkir',
+      ],
+    ),
   ];
 
   @override
