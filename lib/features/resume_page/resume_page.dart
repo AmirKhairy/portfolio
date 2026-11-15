@@ -33,7 +33,7 @@ class ResumePage extends StatelessWidget {
               const Text('Resume', style: TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold)),
               const SizedBox(height: 16),
               OutlinedButton.icon(
-                onPressed: () => launchUrl(Uri.parse('assets/Amir_Khairy_Khalil_Flutter_CV.pdf')),
+                onPressed: () => launchUrl(Uri.parse('assets/assets/Amir_Khairy_Khalil_Flutter_CV.pdf')),
                 icon: const Icon(Icons.download),
                 label: const Text('Download Resume'),
                 style: OutlinedButton.styleFrom(foregroundColor: blue, side: const BorderSide(color: blue)),
