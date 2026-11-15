@@ -91,10 +91,8 @@ class Layout extends StatelessWidget {
     bool isMobile = Responsive.isMobile(context);
 
     if (isMobile) {
-      return Positioned(
-        top: 20,
-        left: 20,
-        right: 20,
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
         child: Column(
           children: [
             Text(
