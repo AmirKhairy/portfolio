@@ -106,7 +106,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'I\'m a Junior Flutter Developer',
+                'Flutter Developer',
                 style: TextStyle(
                   fontSize: titleSize,
                   color: Colors.white,

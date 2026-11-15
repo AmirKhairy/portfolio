@@ -5,53 +5,48 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ResumePage extends StatelessWidget {
   const ResumePage({super.key});
-
   static const blue = Color.fromARGB(255, 61, 144, 215);
 
   @override
-  Widget build(BuildContext context) {
-    return Responsive(
-      desktop: _buildLayout(2),
-      tablet: _buildLayout(2),
-      mobile: _buildLayout(1),
-    );
-  }
+  Widget build(BuildContext context) => Responsive(
+        desktop: _buildLayout(2),
+        tablet: _buildLayout(2),
+        mobile: _buildLayout(1),
+      );
 
-  Widget _buildLayout(int columns) {
-    return AnimationLimiter(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 20, 24, 40),
-        child: Column(
-          children: AnimationConfiguration.toStaggeredList(
-            duration: const Duration(milliseconds: 700),
-            delay: const Duration(milliseconds: 100),
-            childAnimationBuilder: (widget) => SlideAnimation(
-              verticalOffset: 30,
-              child: FadeInAnimation(child: widget),
-            ),
-            children: [
-              const Text('Resume', style: TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 16),
-              OutlinedButton.icon(
-                onPressed: () => launchUrl(Uri.parse('assets/assets/Amir_Khairy_Khalil_Flutter_CV.pdf')),
-                icon: const Icon(Icons.download),
-                label: const Text('Download Resume'),
-                style: OutlinedButton.styleFrom(foregroundColor: blue, side: const BorderSide(color: blue)),
+  Widget _buildLayout(int columns) => AnimationLimiter(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(24, 20, 24, 40),
+          child: Column(
+            children: AnimationConfiguration.toStaggeredList(
+              duration: const Duration(milliseconds: 700),
+              delay: const Duration(milliseconds: 100),
+              childAnimationBuilder: (widget) => SlideAnimation(
+                verticalOffset: 30,
+                child: FadeInAnimation(child: widget),
               ),
-              const SizedBox(height: 28),
-              columns == 1
-                  ? Column(children: _sections())
-                  : Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                      Expanded(child: Column(children: [_summary(), const SizedBox(height: 24), _education(), const SizedBox(height: 24), _skills()])),
-                      const SizedBox(width: 24),
-                      Expanded(child: Column(children: [_experience(), const SizedBox(height: 24), _projects(), const SizedBox(height: 24), _additional()])),
-                    ]),
-            ],
+              children: [
+                const Text('Resume', style: TextStyle(fontSize: 40, color: Colors.white, fontWeight: FontWeight.bold)),
+                const SizedBox(height: 16),
+                OutlinedButton.icon(
+                  onPressed: () => launchUrl(Uri.parse('assets/Amir_Khairy_Khalil_Flutter_CV.pdf')),
+                  icon: const Icon(Icons.download),
+                  label: const Text('Download Resume'),
+                  style: OutlinedButton.styleFrom(foregroundColor: blue, side: const BorderSide(color: blue)),
+                ),
+                const SizedBox(height: 28),
+                columns == 1
+                    ? Column(children: _sections())
+                    : Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                        Expanded(child: Column(children: [_summary(), const SizedBox(height: 24), _education(), const SizedBox(height: 24), _skills()])),
+                        const SizedBox(width: 24),
+                        Expanded(child: Column(children: [_experience(), const SizedBox(height: 24), _projects(), const SizedBox(height: 24), _additional()])),
+                      ]),
+              ],
+            ),
           ),
         ),
-      ),
-    );
-  }
+      );
 
   List<Widget> _sections() => [_summary(), const SizedBox(height: 24), _experience(), const SizedBox(height: 24), _projects(), const SizedBox(height: 24), _education(), const SizedBox(height: 24), _skills(), const SizedBox(height: 24), _additional()];
 
@@ -62,41 +57,35 @@ class ResumePage extends StatelessWidget {
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(title, style: const TextStyle(fontSize: 22, color: blue, fontWeight: FontWeight.bold)), const SizedBox(height: 14), child]),
       );
 
-  Widget _summary() => _card('Professional Summary', const Text('Junior Flutter Developer and Software Engineer with 1+ year of professional experience building production-ready cross-platform Android and iOS applications with Flutter and Dart. Published two apps on the App Store and Google Play. Strong in GetX, BLoC/Cubit, Clean Architecture, MVVM, Firebase, Supabase, RESTful APIs, and SignalR. Graduation project graded A+.', style: TextStyle(color: Colors.white, height: 1.5)));
+  Widget _summary() => _card('Professional Summary', const Text('Flutter and Dart Developer with a B.Sc. in Computer Science and 1+ year of professional experience shipping production Android and iOS apps. Published 3 apps on the App Store and Google Play. Strong in Flutter, BLoC/Cubit, Clean Architecture, Firebase, RESTful APIs, UI/UX and responsive design, and real-time features with SignalR.', style: TextStyle(color: Colors.white, height: 1.5)));
 
-  Widget _experience() => _card('Work Experience', Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        _heading('Flutter Developer (Full-Time) | Designinsta', '12/2025 - Present'),
-        _body('Develop and maintain production Flutter applications for Android and iOS. Translate Figma designs into responsive UIs, architect features with GetX, integrate Firebase Authentication, Firestore, and FCM, and refactor code for performance and maintainability. Collaborate in Agile teams using Git, branching strategies, pull requests, and code reviews. Use AI coding agents with custom rules and sub-agents, reviewing all generated code.'),
-        const SizedBox(height: 16),
-        _heading('Flutter Developer (Intern) | Designinsta', '09/2025 - 12/2025'),
-        _body('Built production-grade Flutter features under mentorship, applying GetX for state management, routing, dependency injection, Firebase Authentication, and Firestore real-time synchronization.'),
+  Widget _experience() => _card('Professional Experience', Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        _heading('Flutter Developer | Designinsta', 'Intern, then Full-Time from 12/2025 | 09/2025 - Present'),
+        _body('Moved from intern to full-time developer in 3 months, owning feature delivery and production bug fixes on cross-platform Flutter apps using GetX and Firebase. Debug and resolve production issues, including Firebase and deep-link flows, keeping live apps stable. Ship work through Agile sprints with Jira, Git branching, and pull-request code reviews.'),
       ]));
 
-  Widget _projects() => _card('Selected Projects', Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        _heading('Qatra (قطرة) - Water Donation Platform', 'Published on App Store & Google Play'),
-        _body('Flutter, Dart, GetX, Firebase, payment integration. Built an app for purchasing water and donating it to mosques, with Moyasar payments and real-time delivery tracking.'),
-        const SizedBox(height: 12),
-        _heading('Qatra Captain (قطرة كابتن) - Delivery Driver App', 'Published on App Store & Google Play'),
-        _body('Flutter, Dart, GetX, Firebase. Built real-time order assignment, delivery status workflows, and photo/video proof of delivery.'),
+  Widget _projects() => _card('Projects', Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        _heading('Qatra & Qatra Captain - Water Donation Platform and Driver App', 'App Store & Google Play'),
+        _body('Flutter, GetX, Firebase, Moyasar. Shipped 2 apps (customer and driver) to both the App Store and Google Play: users buy water and donate it to mosques, with delivery guaranteed within 24 hours. Integrated Moyasar online payments and real-time order tracking, with photo and video proof of delivery.'),
         const SizedBox(height: 12),
         _heading('Farm IQ - Smart Cattle Management App', 'Graduation Project (A+)'),
-        _body('Flutter, GetX, REST API, SignalR, FCM, Dio. Built role-based farm management with live cattle telemetry, AI alerts, JWT authentication, and SignalR team chat.'),
+        _body('Flutter, GetX, REST API, SignalR, FCM, Dio. Built a 2-role (Admin/Worker) app with live cattle health telemetry charts, AI alerts, JWT auth with automatic token refresh, and real-time team chat with SignalR.'),
         const SizedBox(height: 12),
         _heading('Smart Label - E-Commerce App', 'College Project'),
-        _body('Flutter, BLoC/Cubit, REST API, MVVM, Clean Architecture. Built product browsing, cart management, instant price updates, and an admin dashboard.'),
+        _body('Flutter, BLoC/Cubit, MVVM, Clean Architecture, REST API. Built the full shopping flow with product browsing, cart management, instant price updates, and an admin dashboard.'),
         const SizedBox(height: 12),
-        _heading('Basmty - Employee Attendance Tracker', 'Freelance'),
-        _body('Flutter, biometric authentication, local network, SQLite. Built secure fingerprint check-in/check-out with local-network-only communication.'),
+        _heading('Also: Muzakkir and Basmty', 'Additional projects'),
+        _body('Muzakkir: habit tracker using Cubit and local notifications, published on Google Play. Basmty: freelance biometric attendance app using SQLite.'),
       ]));
 
   Widget _education() => _card('Education', Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         _heading('B.Sc. in Computer Science | Tanta University, Egypt', '09/2022 - 06/2026'),
-        _body('GPA: 3.44 / 4.0 (B+)\nGraduation Project: A+'),
+        _body('GPA: 3.44 / 4.0\nGraduation Project: A+'),
       ]));
 
-  Widget _skills() => _card('Technical Skills', const Text('Dart, Flutter SDK, Flutter Web, BLoC, Cubit, GetX, Clean Architecture, MVVM, MVC, Repository Pattern, Firebase, Supabase, REST APIs, Dio, JWT, SignalR, SQLite, Hive, Shared Preferences, FCM, local notifications, responsive UI, localization, payment integration, biometric authentication, WebView, unit testing, Git, GitHub, CI/CD, Agile, Postman, Android Studio, VS Code, Figma, agentic coding.', style: TextStyle(color: Colors.white, height: 1.5)));
+  Widget _skills() => _card('Technical Skills', const Text('Mobile: Dart, Flutter SDK, Flutter Web, mobile UI/UX, responsive UI, localization (Arabic/English), theming, local and push notifications.\n\nState & Architecture: BLoC, Cubit, GetX, Clean Architecture, MVVM, Repository Pattern.\n\nBackend & Data: RESTful APIs, Dio, JWT, Firebase (Authentication, FCM, Firestore, Realtime Database, Storage, Cloud Functions), Supabase, SignalR, SQLite, Hive.\n\nTools: Git/GitHub, CI/CD, Agile/Jira, Postman, Figma, unit testing, AI-assisted development and code review.', style: TextStyle(color: Colors.white, height: 1.5)));
 
-  Widget _additional() => _card('Certifications & Languages', const Text('AI for Developers: Master Agentic Coding the Right Way - Udemy\nFlutter Training - ITI (07/2025 - 08/2025)\niSUPPLY Hackathon 2.0 (06/2025 - 07/2025)\nNext Summit - iCareer 2026\n\nArabic: Native\nEnglish: Professional working proficiency', style: TextStyle(color: Colors.white, height: 1.6)));
+  Widget _additional() => _card('Education & Training', const Text('Flutter Training, ITI (07/2025 - 08/2025): responsive UIs, Cubit, Hive, Firebase, FCM, and REST APIs.\n\niSUPPLY Hackathon 2.0 (2025): built real-time order tracking, FCM push notifications, and a 4-stage order status lifecycle (Pending, Confirmed, Shipped, Delivered).\n\nLanguages: Arabic (Native), English (Professional working proficiency)', style: TextStyle(color: Colors.white, height: 1.6)));
 
   Widget _heading(String title, String subtitle) => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [Text(title, style: const TextStyle(fontSize: 17, color: Colors.white, fontWeight: FontWeight.bold)), const SizedBox(height: 4), Text(subtitle, style: const TextStyle(color: blue, fontStyle: FontStyle.italic))]);
 

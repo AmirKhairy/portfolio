@@ -48,7 +48,7 @@ class Layout extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Flutter developer with a passion for innovation.',
+            'Flutter Developer building production-ready mobile experiences.',
             textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
